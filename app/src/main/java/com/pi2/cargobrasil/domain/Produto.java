@@ -1,13 +1,8 @@
 package com.pi2.cargobrasil.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
+
 @Entity
 @Table(name = "produto")
 public class Produto {
@@ -30,4 +25,62 @@ public class Produto {
         this.numero = numero;
     }
 
+    public Produto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getLargura() {
+        return largura;
+    }
+
+    public void setLargura(Integer largura) {
+        this.largura = largura;
+    }
+
+    public Integer getAltura() {
+        return altura;
+    }
+
+    public void setAltura(Integer altura) {
+        this.altura = altura;
+    }
+
+    public Integer getComprimento() {
+        return comprimento;
+    }
+
+    public void setComprimento(Integer comprimento) {
+        this.comprimento = comprimento;
+    }
+
+    public Double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
 }
