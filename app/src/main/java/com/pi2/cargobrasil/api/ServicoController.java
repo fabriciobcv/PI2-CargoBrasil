@@ -9,11 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/servico")
@@ -25,9 +21,9 @@ public class ServicoController {
     private ServicoConverter converter;
 
      @GetMapping("/{id}")
-    public ResponseEntity<Servico> getServico(Long id) {
-        Optional<Servico> orcamento = service.findById(id);
-        return orcamento.isPresent() ? ResponseEntity.ok(orcamento.get()) : ResponseEntity.notFound().build();
+    public ResponseEntity<ServicoDTO> getServico(@PathVariable Long id) {
+        Optional<Servico> servico = service.findById(id);
+        return servico.isPresent() ? ResponseEntity.ok(converter.toDto(servico.get())) : ResponseEntity.notFound().build();
     }
 
     @PostMapping
