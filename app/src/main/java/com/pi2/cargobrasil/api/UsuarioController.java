@@ -1,6 +1,7 @@
 package com.pi2.cargobrasil.api;
 
 import com.pi2.cargobrasil.domain.Usuario;
+import com.pi2.cargobrasil.domain.dto.UsuarioOutDTO;
 import com.pi2.cargobrasil.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,17 +16,20 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
 
+    @Autowired
+    private UsuarioConverter converter;
+
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> get(@PathVariable Long id){
+    public ResponseEntity<UsuarioOutDTO> get(@PathVariable Long id){
         Optional<Usuario> usuario = service.findById(id);
 
 
-        return usuario.isPresent() ? ResponseEntity.ok(usuario.get()) : ResponseEntity.notFound().build();
+        return usuario.isPresent() ? ResponseEntity.ok(converter.toDTO(usuario.get())) : ResponseEntity.notFound().build();
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> post(@RequestBody Usuario usuario){
+    public ResponseEntity<UsuarioOutDTO> post(@RequestBody Usuario usuario){
         Usuario novoUsario = service.save(usuario);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novoUsario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(converter.toDTO(novoUsario));
     }
 }
