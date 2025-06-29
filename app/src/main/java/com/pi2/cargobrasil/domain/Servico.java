@@ -24,7 +24,7 @@ public class Servico {
 
     @ManyToOne
     @JoinColumn(name = "destinatario_id")
-    private Usuario destinario;
+    private Usuario destinatario;
 
     @ManyToOne
     @JoinColumn(name = "endereco_busca_id")
@@ -53,20 +53,20 @@ public class Servico {
         this.produto = produto;
     }
 
-    public Pagamento getPagamento() {
-        return pagamento;
+    public String getPagamento() {
+        return pagamento.name();
     }
 
-    public void setPagamento(Pagamento pagamento) {
-        this.pagamento = pagamento;
+    public void setPagamento(String pagamento) {
+        this.pagamento = Pagamento.valueOf(pagamento);
     }
 
-    public Status getStatus() {
-        return status;
+    public String getStatus() {
+        return status.name();
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(String status) {
+        this.status = Status.valueOf(status);
     }
 
     public Usuario getRemetente() {
@@ -77,12 +77,12 @@ public class Servico {
         this.remetente = remetente;
     }
 
-    public Usuario getDestinario() {
-        return destinario;
+    public Usuario getDestinatario() {
+        return destinatario;
     }
 
-    public void setDestinario(Usuario destinario) {
-        this.destinario = destinario;
+    public void setDestinatario(Usuario destinario) {
+        this.destinatario = destinario;
     }
 
     public Endereco getEnderecoBusca() {
