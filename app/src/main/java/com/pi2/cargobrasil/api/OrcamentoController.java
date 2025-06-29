@@ -5,6 +5,8 @@ import com.pi2.cargobrasil.domain.Orcamento;
 import com.pi2.cargobrasil.domain.dto.OrcamentoDTO;
 import com.pi2.cargobrasil.service.OrcamentoService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.catalina.connector.Response;
@@ -37,5 +39,17 @@ public class OrcamentoController {
         Orcamento orcamento = converter.toEntity(orcamentoDTO);
         Orcamento novoOrcamento = service.save(orcamento);
         return ResponseEntity.status(HttpStatus.CREATED).body(converter.toDto(novoOrcamento));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<OrcamentoDTO>> getOrcamentos(){
+        List<Orcamento> orcamentos = service.list();
+        List<OrcamentoDTO> orcamentosDTO = new ArrayList<>();
+
+        for (Orcamento orcamento: orcamentos) {
+            orcamentosDTO.add(converter.toDto(orcamento));
+        }
+        
+        return !orcamentos.isEmpty() ? ResponseEntity.status(HttpStatus.OK).body(orcamentosDTO) : ResponseEntity.notFound().build();
     }
 }
