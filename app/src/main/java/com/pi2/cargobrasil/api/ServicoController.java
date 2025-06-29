@@ -31,9 +31,9 @@ public class ServicoController {
     }
 
     @PostMapping
-    public ResponseEntity<Servico> post(@RequestBody ServicoDTO servicoDTO){
+    public ResponseEntity<ServicoDTO> post(@RequestBody ServicoDTO servicoDTO){
         Servico servico = converter.toEntity(servicoDTO);
         Servico servicoSalvo = service.save(servico);
-        return ResponseEntity.status(HttpStatus.CREATED).body(servicoSalvo);
+        return ResponseEntity.status(HttpStatus.CREATED).body(converter.toDto(servicoSalvo));
     }
 }
