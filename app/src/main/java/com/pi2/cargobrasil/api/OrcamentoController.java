@@ -2,6 +2,7 @@ package com.pi2.cargobrasil.api;
 
 import com.pi2.cargobrasil.domain.Endereco;
 import com.pi2.cargobrasil.domain.Orcamento;
+import com.pi2.cargobrasil.domain.dto.OrcamentoDTO;
 import com.pi2.cargobrasil.service.OrcamentoService;
 
 import java.util.Optional;
@@ -22,6 +23,9 @@ public class OrcamentoController {
     @Autowired
     private OrcamentoService service;
 
+    @Autowired
+    private OrcamentoConverter converter;
+
     @GetMapping("/{id}")
     public ResponseEntity<Orcamento> getOrcamento(Long id) {
         Optional<Orcamento> orcamento = service.findById(id);
@@ -29,8 +33,9 @@ public class OrcamentoController {
     }
 
     @PostMapping
-    public ResponseEntity<Orcamento> post(@RequestBody Orcamento orcamento){
+    public ResponseEntity<OrcamentoDTO> post(@RequestBody OrcamentoDTO orcamentoDTO){
+        Orcamento orcamento = converter.toEntity(orcamentoDTO);
         Orcamento novoOrcamento = service.save(orcamento);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novoOrcamento);
+        return ResponseEntity.status(HttpStatus.CREATED).body(converter.toDto(novoOrcamento));
     }
 }

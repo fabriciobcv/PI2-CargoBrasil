@@ -52,3 +52,16 @@ CREATE TABLE IF NOT EXISTS servico(
     FOREIGN KEY(remetente_id) REFERENCES usuario(id),
     FOREIGN KEY(destinatario_id) REFERENCES usuario(id)
 );
+
+CREATE TABLE IF NOT EXISTS orcamento(
+  id BIGINT AUTO_INCREMENT NOT NULL,
+  custo_embalagem DOUBLE NOT NULL,
+  taxa_desistencia DOUBLE NOT NULL,
+  valor DOUBLE NOT NULL,
+  prazo INT NOT NULL,
+  servico_id INT NOT NULL,
+  funcionario_orcamento_id INT NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(servico_id) REFERENCES servico(id),
+  FOREIGN KEY(funcionario_orcamento_id) REFERENCES usuario(id)
+);
