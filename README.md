@@ -1,4 +1,9 @@
-# MEDIÇÕES DO SLA
+# Sistema de Orçamento e Rastreio da transportadora CargoBrasil
+
+O projeto consiste em uma **API Rest** utilizando Springboot para funcionários e clientes da empresa CargoBrasil, **com testes de carga utilizando o [k6](https://k6.io/)**
+
+
+## Testes de carga com k6
 
 ## Serviço 1: POST /orcamento
 **Tipo de operação:** inserção (escrita)
@@ -22,7 +27,23 @@
 - **Latência média:** 1.1 ms
 - **Vazão:** 11.25 req/s
 - **Concorrência máxima:** 20 VUs
-- **Gráfico:** [orcamento-post.html](https://github.com/fabriciobcv/PI2-CargoBrasil/blob/main/k6/orcamento-post.html)
+- **Gráfico completo:** [orcamento-post.html](https://fabriciobcv.github.io/PI2-CargoBrasil/k6/orcamento-post.html)
+
+
+### Duração Média das Requisições
+![Tela inicial](k6/images/post/Request Duration.png)
+
+### Tempo Médio Bloqueado
+![Tela inicial](k6/images/post/Request Blocked.png)
+
+### Vazão de Requisições
+![Tela inicial](k6/images/post/Request Rate.png)
+
+### Tempo Médio de Espera
+![Tela inicial](k6/images/post/Request Waiting.png)
+
+### Requisições X Usuários simultâneos(VUs)
+![Tela inicial](k6/images/post/VUs.png)
 
 ## Serviço 2: GET /orcamento
 **Tipo de operação:** leitura
@@ -46,4 +67,19 @@
 - **Latência média:** 4.46 ms
 - **Vazão:** 22.21 req/s
 - **Concorrência máxima:** 20 VUs
-- **Gráfico:** [orcamentos-get.html](https://github.com/fabriciobcv/PI2-CargoBrasil/blob/main/k6/orcamentos-get.html)
+- **Gráfico completo:** [orcamentos-get.html](https://fabriciobcv.github.io/PI2-CargoBrasil/k6/orcamentos-get.html)
+
+### Duração Média das Requisições
+![Tela inicial](k6/images/post/Request Duration.png)
+
+### Tempo Médio Bloqueado
+![Tela inicial](k6/images/post/Request Blocked.png)
+
+### Vazão de Requisições
+![Tela inicial](k6/images/post/Request Rate.png)
+
+### Tempo Médio de Espera
+![Tela inicial](k6/images/post/Request Waiting.png)
+
+### Requisições X Usuários simultâneos(VUs)
+![Tela inicial](k6/images/post/VUs.png)
