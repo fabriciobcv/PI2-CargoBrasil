@@ -31,19 +31,19 @@ O projeto consiste em uma **API Rest** utilizando Springboot para funcionários 
 
 
 ### Duração Média das Requisições
-![Tela inicial](k6/images/post/Request Duration.png)
+![Request Duration POST](k6/images/post/Request Duration.png)
 
 ### Tempo Médio Bloqueado
-![Tela inicial](k6/images/post/Request Blocked.png)
+![Request Blocked POST](k6/images/post/Request Blocked.png)
 
 ### Vazão de Requisições
-![Tela inicial](k6/images/post/Request Rate.png)
+![Request Rate POST](k6/images/post/Request Rate.png)
 
 ### Tempo Médio de Espera
-![Tela inicial](k6/images/post/Request Waiting.png)
+![Request Waiting POST](k6/images/post/Request Waiting.png)
 
 ### Requisições X Usuários simultâneos(VUs)
-![Tela inicial](k6/images/post/VUs.png)
+![VUs POST](k6/images/post/VUs.png)
 
 ## Serviço 2: GET /orcamento
 **Tipo de operação:** leitura
@@ -70,16 +70,16 @@ O projeto consiste em uma **API Rest** utilizando Springboot para funcionários 
 - **Gráfico completo:** [orcamentos-get.html](https://fabriciobcv.github.io/PI2-CargoBrasil/k6/orcamentos-get.html)
 
 ### Duração Média das Requisições
-![Tela inicial](k6/images/post/Request Duration.png)
+![Request Duration GET](k6/images/get/Request Duration.png)
 
 ### Tempo Médio Bloqueado
-![Tela inicial](k6/images/post/Request Blocked.png)
+![Request Blocked GET](k6/images/get/Request Blocked.png)
 
 ### Vazão de Requisições
-![Tela inicial](k6/images/post/Request Rate.png)
+![Request Rate GET](k6/images/get/Request Rate.png)
 
 ### Tempo Médio de Espera
-![Tela inicial](k6/images/post/Request Waiting.png)
+![Request Waiting GET](k6/images/get/Request Waiting.png)
 
 ### Requisições X Usuários simultâneos(VUs)
-![Tela inicial](k6/images/post/VUs.png)
+![VUs GET](k6/images/get/VUs.png)
