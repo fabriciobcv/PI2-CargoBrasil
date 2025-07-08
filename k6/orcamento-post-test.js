@@ -3,9 +3,22 @@ import { sleep, check } from 'k6';
 
 export const options = {
     stages: [
-        { duration: '10s', target: 10 },
-        { duration: '20s', target: 20 },
-        { duration: '10s', target: 0 },
+        // Fase 1 - Leve (aquecimento)
+        { duration: '30s', target: 20 },
+        { duration: '30s', target: 50 },
+
+        // Fase 2 - Média (uso realista)
+        { duration: '30s', target: 100 },
+        { duration: '45s', target: 200 },
+
+        // Fase 3 - Alta (teste de estresse)
+        { duration: '1m', target: 400 },
+        { duration: '1m', target: 600 },
+
+        // Fase final - redução progressiva
+        { duration: '45s', target: 200 },
+        { duration: '30s', target: 50 },
+        { duration: '30s', target: 0 }
     ],
 };
 
