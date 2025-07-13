@@ -25,7 +25,7 @@ public class OrcamentoController {
     private OrcamentoConverter converter;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Orcamento> getOrcamento(Long id) {
+    public ResponseEntity<Orcamento> getOrcamento(@PathVariable Long id) {
         Optional<Orcamento> orcamento = service.findById(id);
         return orcamento.isPresent() ? ResponseEntity.ok(orcamento.get()) : ResponseEntity.notFound().build();
     }
@@ -49,7 +49,7 @@ public class OrcamentoController {
         return !orcamentos.isEmpty() ? ResponseEntity.status(HttpStatus.OK).body(orcamentosDTO) : ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/{servicoId}")
+    @GetMapping("/busca_por_servico/{servicoId}")
     public ResponseEntity<OrcamentoDTO> getOrcamentoById(@PathVariable Long servicoId){
         Optional<Orcamento> orcamento = service.findByServicoId(servicoId);
         OrcamentoDTO orcamentoDTO = converter.toDto(orcamento.get());

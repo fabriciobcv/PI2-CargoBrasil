@@ -32,4 +32,14 @@ public class ServicoController {
         Servico servicoSalvo = service.save(servico);
         return ResponseEntity.status(HttpStatus.CREATED).body(converter.toDto(servicoSalvo));
     }
+
+    @PutMapping("/{id}/avaliar-orcamento")
+    public ResponseEntity<String> avaliarOrcamento(@PathVariable Long id, @RequestParam String status){
+         try {
+             service.atualizarStatus(id, status);
+             return ResponseEntity.ok("Status atualizado com sucesso");
+         }catch (Exception e){
+             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao atualizar o status: " + e.getMessage());
+         }
+    }
 }

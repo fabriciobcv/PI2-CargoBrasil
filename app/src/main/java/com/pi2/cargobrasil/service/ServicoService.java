@@ -4,6 +4,7 @@ import com.pi2.cargobrasil.domain.Orcamento;
 import com.pi2.cargobrasil.repository.ServicoRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,16 @@ public class ServicoService {
 
     public Servico save(Servico servico){
         return repository.save(servico);
+    }
+
+    public Servico atualizarStatus(Long id, String status) {
+         Optional<Servico> servicoAserAtualizado = repository.findById(id);
+         if (servicoAserAtualizado.isPresent()){
+             Servico servico = servicoAserAtualizado.get();
+             servico.setStatus(status);
+             return repository.save(servico);
+         }
+
+         throw new NoSuchElementException("Serviço não encontrado com o ID:" + id);
     }
 }
