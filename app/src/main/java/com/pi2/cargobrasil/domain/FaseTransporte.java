@@ -8,30 +8,31 @@ import java.util.Map;
 
 @DynamoDbBean
 public class FaseTransporte {
-    private Long faseId;
-    private Long transporteId;
+    private Long servicoId;
+    private Long faseNumero;
     private String status;
     private String meioTransporte;
-    private Long funcionarioLogisticaId;
+    private String data;
+    private Long funcionarioId;
     private Map<String, String> enderecoOrigem;
     private Map<String, String> enderecoDestino;
 
     @DynamoDbPartitionKey
-    public Long getFaseId() {
-        return faseId;
+    public Long getServicoId() {
+        return servicoId;
     }
 
-    public void setFaseId(Long faseId) {
-        this.faseId = faseId;
+    public void setServicoId(Long servicoId) {
+        this.servicoId = servicoId;
     }
 
     @DynamoDbSortKey
-    public Long getTransporteId() {
-        return transporteId;
+    public Long getFaseNumero() {
+        return faseNumero;
     }
 
-    public void setTransporteId(Long transporteId) {
-        this.transporteId = transporteId;
+    public void setFaseNumero(Long faseNumero) {
+        this.faseNumero = faseNumero;
     }
 
     public String getStatus() {
@@ -50,12 +51,20 @@ public class FaseTransporte {
         this.meioTransporte = meioTransporte;
     }
 
-    public Long getFuncionarioLogisticaId() {
-        return funcionarioLogisticaId;
+    public String getData() {
+        return data;
     }
 
-    public void setFuncionarioLogisticaId(Long funcionarioLogisticaId) {
-        this.funcionarioLogisticaId = funcionarioLogisticaId;
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public Long getFuncionarioId() {
+        return funcionarioId;
+    }
+
+    public void setFuncionarioId(Long funcionarioId) {
+        this.funcionarioId = funcionarioId;
     }
 
     public Map<String, String> getEnderecoOrigem() {
