@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <title>CargoBrasil - Fases do Transporte</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/fases-transporte.js"></script>
+</head>
+<body>
+<nav>
+    <div class="topnav">
+        <a href="listagem.html">CargoBrasil</a>
+        <a href="listagem.html">Lista de Pedidos</a>
+        <a href="cadastrarPedido.html">Realizar Pedidos</a>
+        <a href="fases-transporte.html">Fases do Transporte</a>
+        <a href="rastreio-sem-cadastro.html">Rastreio</a>
+    </div>
+</nav>
+<div class="row">
+    <div class="column side"></div>
+    <div class="column middle">
+        <div class="pedido">
+            <h2 class="titulo">Fases do Transporte</h2>
+            <div class="mb-3">
+                <label for="servicoIdInput" class="form-label">Digite o ID do Serviço:</label>
+                <input type="number" class="form-control" id="servicoIdInput" placeholder="ID do Serviço...">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="consultarFases()">Consultar</button>
+            <hr>
+            <div id="fases-container" style="display: none;">
+                <h3>Status do Pedido</h3>
+                <div id="servico_status"></div>
+                <br>
+                <div class="progress" id="progress-bar-container">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column side"></div>
+</div>
+</body>
+</html>
