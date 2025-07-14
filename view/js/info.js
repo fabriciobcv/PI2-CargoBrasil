@@ -75,6 +75,14 @@ async function showServico(servico){
     document.getElementById("aprovacao").innerHTML = opcoes;
   }
 
+  if(servico.status === 'APROVADO'){
+    let lines = `<ul class="list-group">
+    <li class="list-group-item">${servico.codigoRastreio}</li>
+    </ul>`
+
+    document.getElementById("codigoRastreio").innerHTML = lines;
+  }
+
 }
 
 async function showOrcamento(orcamento){
@@ -141,7 +149,7 @@ async function getProduto(produtoId){
 
 async function putServico(servicoId, status){
     let auth = localStorage.getItem('Authorization');
-    const destino = await fetch(`http://localhost:8080/api/servico/${servicoId}/avaliar-orcamento?status=${status}`, {
+    const destino = await fetch(`http://localhost:8080/servico/${servicoId}/avaliar-orcamento?status=${status}`, {
         method: "PUT"
     });
     
