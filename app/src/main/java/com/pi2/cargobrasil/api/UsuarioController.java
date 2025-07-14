@@ -28,6 +28,7 @@ public class UsuarioController {
         return usuario.isPresent() ? ResponseEntity.ok(converter.toDTO(usuario.get())) : ResponseEntity.notFound().build();
     }
 
+
     @PostMapping
     public ResponseEntity<UsuarioOutDTO> post(@RequestBody Usuario usuario){
         Usuario novoUsario = service.save(usuario);
@@ -42,6 +43,8 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("CPF ou senha inválidos");
         }
 
-        return ResponseEntity.ok(usuario.get());
+        UsuarioOutDTO usuarioOutDTO = converter.toDTO(usuario.get());
+
+        return ResponseEntity.ok(usuarioOutDTO);
     }
 }

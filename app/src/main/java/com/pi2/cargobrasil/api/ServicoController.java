@@ -5,6 +5,8 @@ import com.pi2.cargobrasil.domain.dto.ServicoDTO;
 import com.pi2.cargobrasil.domain.dto.ServicoResponse;
 import com.pi2.cargobrasil.service.ServicoService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,29 @@ public class ServicoController {
         Optional<Servico> servico = service.findById(id);
         return servico.isPresent() ? ResponseEntity.ok(converter.toResponse(servico.get())) : ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<ServicoResponse>> getServicos() {
+        List<Servico> servicos = service.findServicos();
+        List<ServicoResponse> servicoResponses = new ArrayList<>();
+        for (Servico servico : servicos) {
+            servicoResponses.add(converter.toResponse(servico));
+        }
+        return !servicoResponses.isEmpty() ? ResponseEntity.ok(servicoResponses) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/remetente/{id}")
+    public ResponseEntity<List<ServicoResponse>> getServicoByRemetente(@PathVariable Long id) {
+        List<Servico> servicos = service.findByRemetenteId(id);
+
+        List<ServicoResponse> servicoResponses = new ArrayList<>();
+        for (Servico servico : servicos) {
+            servicoResponses.add(converter.toResponse(servico));
+        }
+
+        return !servicoResponses.isEmpty() ? ResponseEntity.ok(servicoResponses) : ResponseEntity.notFound().build();
+    }
+
 
     @GetMapping("/rastreio/{codigoRastreio}")
     public ResponseEntity<ServicoResponse> getServicoByCodigoDeRastreio(@PathVariable String codigoRastreio) {

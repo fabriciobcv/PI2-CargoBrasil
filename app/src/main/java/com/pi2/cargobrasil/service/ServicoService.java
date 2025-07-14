@@ -52,4 +52,8 @@ public class ServicoService {
 
          throw new NoSuchElementException("Serviço não encontrado com o ID:" + id);
     }
+
+    public List<Servico> findServicos(){
+         return repository.findAll();
+    }
 }

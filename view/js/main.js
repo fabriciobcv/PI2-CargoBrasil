@@ -17,12 +17,14 @@ async function login(){
     });
 
     const usuario = await response.json();
-    window.localStorage.setItem("tipo", usuario.perfil);
+    console.log(usuario)
+    window.localStorage.setItem("tipo", usuario.tipo);
+    window.localStorage.setItem("usuarioId", usuario.id);
   
 
 
     if (response.ok) {
-        window.location.href = "index.html";
+        window.location.href = "listagem.html";
     }
 }
 

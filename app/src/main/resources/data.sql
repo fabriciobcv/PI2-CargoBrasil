@@ -1,7 +1,7 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 
-INSERT INTO usuario(nome, email, telefone, cpf, senha, tipo) values ('Fulano da Silva', 'fulano.silva@cargobrasil.com', '219XXXXXXXX', '06236714096', '1234', 'FUNCIONARIO_TRANSPORTE');
-INSERT INTO usuario(nome, email, telefone, cpf, senha, tipo) values ('Ciclano da Silva', 'ciclano.silva@cargobrasil.com', '219XXXXXXXX', '06236714097', '1234', 'FUNCIONARIO_ORCAMENTO');
+INSERT INTO usuario(nome, email, telefone, cpf, senha, tipo) values ('Fulano da Silva', 'fulano.silva@cargobrasil.com', '219XXXXXXXX', '06236714096', '1234', 'TRANSPORTE');
+INSERT INTO usuario(nome, email, telefone, cpf, senha, tipo) values ('Ciclano da Silva', 'ciclano.silva@cargobrasil.com', '219XXXXXXXX', '06236714097', '1234', 'ORCAMENTO');
 INSERT INTO usuario(nome, email, telefone, cpf, senha, tipo) values ('João Carvalho', 'joao.carvalho@gmail.com', '219XXXXXXXX', '23945166071', '12345', 'CLIENTE');
 INSERT INTO usuario(nome, email, telefone, cpf, senha, tipo) values ('Maria Torres', 'mariatorres@gmail.com', '219XXXXXXXX', '85122502080', '12345', 'CLIENTE');
 INSERT INTO endereco(estado, municipio, bairro, rua, numero, complemento, cep) values ('Rio de Janeiro', 'Rio de Janeiro', 'Urca', 'Av. Pasteur', 458, 'CCET UNIRIO', '22290250');
