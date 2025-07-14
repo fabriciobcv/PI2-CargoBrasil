@@ -2,6 +2,7 @@ package com.pi2.cargobrasil.api;
 
 import com.pi2.cargobrasil.domain.Servico;
 import com.pi2.cargobrasil.domain.dto.ServicoDTO;
+import com.pi2.cargobrasil.domain.dto.ServicoResponse;
 import com.pi2.cargobrasil.service.ServicoService;
 
 import java.util.Optional;
@@ -21,9 +22,9 @@ public class ServicoController {
     private ServicoConverter converter;
 
      @GetMapping("/{id}")
-    public ResponseEntity<ServicoDTO> getServico(@PathVariable Long id) {
+    public ResponseEntity<ServicoResponse> getServico(@PathVariable Long id) {
         Optional<Servico> servico = service.findById(id);
-        return servico.isPresent() ? ResponseEntity.ok(converter.toDto(servico.get())) : ResponseEntity.notFound().build();
+        return servico.isPresent() ? ResponseEntity.ok(converter.toResponse(servico.get())) : ResponseEntity.notFound().build();
     }
 
     @PostMapping

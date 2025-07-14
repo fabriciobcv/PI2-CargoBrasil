@@ -1,28 +1,27 @@
 package com.pi2.cargobrasil.domain.dto;
 
-import org.springframework.stereotype.Component;
+public class ServicoResponse  {
 
-@Component
-public class ServicoDTO {
+    private Long id;
+    private Long produtoId;
+    private String pagamento;
+    private String status;
+    private Long remetenteId;
+    private Long destinatarioId;
+    private Long enderecoBuscaId;
+    private Long enderecoEntregaId;
 
-  private Long id;
-  private Long produtoId;
-  private String pagamento;
-  private Long remetenteId;
-  private Long destinatarioId;
-  private Long enderecoBuscaId;
-  private Long enderecoEntregaId;
-
-    public ServicoDTO() {
-      super();
+    public ServicoResponse() {
+        super();
     }
 
-        public ServicoDTO(Long id, Long produtoId, String pagamento, String status,
+    public ServicoResponse(Long id, Long produtoId, String pagamento, String status,
                       Long remetenteId, Long destinatarioId,
                       Long enderecoBuscaId, Long enderecoEntregaId) {
         this.id = id;
         this.produtoId = produtoId;
         this.pagamento = pagamento;
+        this.status = status;
         this.remetenteId = remetenteId;
         this.destinatarioId = destinatarioId;
         this.enderecoBuscaId = enderecoBuscaId;
@@ -52,7 +51,15 @@ public class ServicoDTO {
     public void setPagamento(String pagamento) {
         this.pagamento = pagamento;
     }
-    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Long getRemetenteId() {
         return remetenteId;
     }
