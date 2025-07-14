@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS servico(
     produto_id BIGINT NOT NULL,
     pagamento VARCHAR(20) NOT NULL,
     status VARCHAR(20) NOT NULL,
+    codigo_rastreio VARCHAR(70),
     remetente_id BIGINT NOT NULL,
     destinatario_id BIGINT NOT NULL,
     endereco_busca_id INT NOT NULL,

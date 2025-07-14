@@ -18,6 +18,9 @@ public class Servico {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Column(name = "codigo_rastreio")
+    private String codigoRastreio;
+
     @ManyToOne
     @JoinColumn(name = "remetente_id")
     private Usuario remetente;
@@ -67,6 +70,14 @@ public class Servico {
 
     public void setStatus(String status) {
         this.status = Status.valueOf(status);
+    }
+
+    public String getCodigoRastreio() {
+        return codigoRastreio;
+    }
+
+    public void setCodigoRastreio(String codigoRastreio) {
+        this.codigoRastreio = codigoRastreio;
     }
 
     public Usuario getRemetente() {

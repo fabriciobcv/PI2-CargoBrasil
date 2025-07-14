@@ -1,11 +1,13 @@
 package com.pi2.cargobrasil.service;
 
 import com.pi2.cargobrasil.domain.Orcamento;
+import com.pi2.cargobrasil.domain.Status;
 import com.pi2.cargobrasil.repository.ServicoRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,9 +33,16 @@ public class ServicoService {
 
     public Servico atualizarStatus(Long id, String status) {
          Optional<Servico> servicoAserAtualizado = repository.findById(id);
+
          if (servicoAserAtualizado.isPresent()){
              Servico servico = servicoAserAtualizado.get();
              servico.setStatus(status);
+
+             if("APROVADO".equalsIgnoreCase(Status.APROVADO.name())){
+                 String codigoRastreio = "CBR-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+                 servico.setCodigoRastreio(codigoRastreio);
+             }
+
              return repository.save(servico);
          }
 

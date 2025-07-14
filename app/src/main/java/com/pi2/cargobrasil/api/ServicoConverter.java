@@ -64,6 +64,7 @@ public ServicoResponse toResponse(Servico servico){
     servicoResponse.setProdutoId(servico.getProduto().getId());
     servicoResponse.setPagamento(servico.getPagamento());
     servicoResponse.setStatus(servico.getStatus());
+    servicoResponse.setCodigoRastreio(servico.getCodigoRastreio());
     servicoResponse.setRemetenteId(servico.getRemetente().getId());
     servicoResponse.setDestinatarioId(servico.getDestinatario().getId());
     servicoResponse.setEnderecoBuscaId(servico.getEnderecoBusca().getId());

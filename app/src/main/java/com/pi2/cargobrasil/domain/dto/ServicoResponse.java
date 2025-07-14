@@ -6,6 +6,9 @@ public class ServicoResponse  {
     private Long produtoId;
     private String pagamento;
     private String status;
+
+    private String codigoRastreio;
+
     private Long remetenteId;
     private Long destinatarioId;
     private Long enderecoBuscaId;
@@ -16,12 +19,13 @@ public class ServicoResponse  {
     }
 
     public ServicoResponse(Long id, Long produtoId, String pagamento, String status,
-                      Long remetenteId, Long destinatarioId,
-                      Long enderecoBuscaId, Long enderecoEntregaId) {
+                           String codigoRastreio, Long remetenteId, Long destinatarioId,
+                           Long enderecoBuscaId, Long enderecoEntregaId) {
         this.id = id;
         this.produtoId = produtoId;
         this.pagamento = pagamento;
         this.status = status;
+        this.codigoRastreio = codigoRastreio;
         this.remetenteId = remetenteId;
         this.destinatarioId = destinatarioId;
         this.enderecoBuscaId = enderecoBuscaId;
@@ -58,6 +62,14 @@ public class ServicoResponse  {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getCodigoRastreio() {
+        return codigoRastreio;
+    }
+
+    public void setCodigoRastreio(String codigoRastreio) {
+        this.codigoRastreio = codigoRastreio;
     }
 
     public Long getRemetenteId() {
