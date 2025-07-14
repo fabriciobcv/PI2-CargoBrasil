@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <title>CargoBrasil</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .timeline {
+      position: relative;
+      margin-left: 30px;
+      padding-left: 20px;
+      border-left: 3px solid #ccc;
+    }
+
+    .fase {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .fase::before {
+      content: "●";
+      position: absolute;
+      left: -31px;
+      font-size: 20px;
+      color: #ccc;
+    }
+
+    .fase.entregue::before {
+      color: #00c851; /* verde */
+    }
+
+    .fase p {
+      margin: 0;
+    }
+
+    .botao {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .botao:hover {
+      background-color: #0056b3;
+    }
+  </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/fasesTransporte.js"></script> 
+    
+</head>
+
+  <body>
+    <nav>
+      <div class="topnav">
+        <a href="listagem.html">CargoBrasil</a>
+        <a href="listagem.html">Lista de Pedidos</a>
+        <a href="cadastrarPedido.html">Realizar Pedidos</a>
+        <a href="rastreio.html">Rastrear Pedido</a>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="column side"></div>
+      <div class="column middle">
+        <div class ="pedido">
+          <h2>ENCOMENDA</h2>
+          <div class="timeline" id="linha-do-tempo">        
+        </div>
+      <div class="column side"></div>
+      </div>
+      </div>
+    </div>
+  <!-- <script>
+    // Simulando resposta da sua API
+    const fasesTransporte = [
+      {
+        faseEntrega: 1,
+        status: "Objeto em trânsito",
+        detalhe: "de BAURU/SP para RIO DE JANEIRO/RJ",
+        dataHora: "03/05/2022 13:48"
+      },
+      {
+        faseEntrega: 2,
+        status: "Objeto em trânsito",
+        detalhe: "em RIO DE JANEIRO/RJ para unidade de distribuição",
+        dataHora: "04/05/2022 15:53"
+      },
+      {
+        faseEntrega: 3,
+        status: "Objeto saiu para entrega ao destinatário",
+        detalhe: "RIO DE JANEIRO/RJ",
+        dataHora: "05/05/2022 11:56"
+      },
+      {
+        faseEntrega: 4,
+        status: "Objeto entregue ao destinatário",
+        detalhe: "RIO DE JANEIRO/RJ",
+        dataHora: "05/05/2022 14:36",
+        entregue: true
+      }
+    ];
+
+    const container = document.getElementById("linha-do-tempo");
+
+    // Ordena por faseEntrega
+    fasesTransporte.sort((a, b) => a.faseEntrega - b.faseEntrega);
+
+    // Renderiza
+    fasesTransporte.forEach(fase => {
+      const div = document.createElement("div");
+      div.className = "fase" + (fase.entregue ? " entregue" : "");
+
+      div.innerHTML = `
+        <p><strong>${fase.status}</strong></p>
+        <p>${fase.detalhe}</p>
+        <p>${fase.dataHora}</p>
+      `;
+
+      container.appendChild(div);
+    });
+  </script> -->
+    
+    
+  </body>
+</html>

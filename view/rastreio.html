@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/rastreio-sem-cadastro.js"></script>
+  <script src="js/fasesTransporte.js"></script>
 </head>
 <body>
 <nav>
@@ -27,7 +27,7 @@
         <label for="trackingIdInput" class="form-label">Código de Rastreio</label>
         <input type="text" class="form-control" id="trackingIdInput" placeholder="Digite o código...">
       </div>
-      <button type="button" class="btn btn-primary" onclick="rastrearEncomenda()">Rastrear</button>
+      <button type="button" class="btn btn-primary" onclick="getServico()">Rastrear</button>
     </div>
     <div id="resultado-rastreio" class="pedido" style="display: none; margin-top: 20px;">
       <h3>Detalhes do Pedido</h3>
