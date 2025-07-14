@@ -6,7 +6,7 @@ function show(servicos) {
 
     servicos.forEach(servico => {
 
-        if(cargo = "ORCAMENTO" ){
+        if(cargo == "ORCAMENTO" ){
             line += `
             <tr>
                 <th scope="row">${i}</th>
@@ -51,9 +51,9 @@ function show(servicos) {
 
 function showHeaders(){
     let line = "";
-    let cargo = window.localStorage.getItem('Cargo');
+    let cargo = window.localStorage.getItem('tipo');
 
-    if(cargo = "ORCAMENTO"){
+    if(cargo == "ORCAMENTO"){
         line = `
         <tr>
             <th scope="col">#</th>
@@ -79,7 +79,7 @@ async function getServicos() {
     let cargo = localStorage.getItem('tipo');
     let usuarioId = localStorage.getItem('usuarioId');
 
-    let url = cargo = "ORCAMENTO" ? "http://localhost:8080/servico/list" : `http://localhost:8080/servico/remetente/${usuarioId}`
+    let url = cargo == "ORCAMENTO" ? "http://localhost:8080/servico/list" : `http://localhost:8080/servico/remetente/${usuarioId}`
 
     const servicosRequest = await fetch(url, {
         method: "GET"
