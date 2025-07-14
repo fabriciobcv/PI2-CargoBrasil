@@ -1,6 +1,7 @@
 package com.pi2.cargobrasil.api;
 
 import com.pi2.cargobrasil.domain.Usuario;
+import com.pi2.cargobrasil.domain.dto.LoginRequest;
 import com.pi2.cargobrasil.domain.dto.UsuarioOutDTO;
 import com.pi2.cargobrasil.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,16 @@ public class UsuarioController {
     public ResponseEntity<UsuarioOutDTO> post(@RequestBody Usuario usuario){
         Usuario novoUsario = service.save(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(converter.toDTO(novoUsario));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
+        Optional<Usuario> usuario = service.findByCpfAndSenha(loginRequest.getCpf(), loginRequest.getSenha());
+
+        if (usuario.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("CPF ou senha inválidos");
+        }
+
+        return ResponseEntity.ok(usuario.get());
     }
 }

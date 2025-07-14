@@ -1,0 +1,148 @@
+.login{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.login h2{
+    text-align: center;
+}
+
+body {
+    padding: 10px;
+}
+
+.header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+}
+  
+.header h1 {
+    font-size: 50px;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+}
+  
+.column.side {
+    width: 25%;
+}
+
+.column.middle {
+    width: 50%;
+}
+
+.btn.btn-primary{
+    margin-left: 89.3%;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.pedido {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.pedido h3{
+    text-align: center;
+}
+
+.pedido h2{
+    text-align: center;
+}
+
+.pedido h1{
+    text-align: center;
+}
+
+.pedido button{
+    margin-right: 0.5%;
+}
+
+.form-control {
+    padding: 2%;
+}
+
+.listagemEnderecos {
+    padding-top: 2%;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.thead-dark tr th {
+    text-align: center;
+}
+
+.excluirEndereco {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cadastrarEndereco{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registrarOrcamento{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listagem {
+    padding-top: 2%;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.expandirInformacoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.titulo {
+    white-space: nowrap;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.registrarOrcamento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

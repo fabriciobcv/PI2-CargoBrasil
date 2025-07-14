@@ -19,4 +19,8 @@ public class UsuarioService {
     public Usuario save(Usuario usuario){
         return repository.save(usuario);
     }
+
+    public Optional<Usuario> findByCpfAndSenha(String cpf, String senha){
+        return repository.findByCpfAndSenha(cpf, senha);
+    }
 }
