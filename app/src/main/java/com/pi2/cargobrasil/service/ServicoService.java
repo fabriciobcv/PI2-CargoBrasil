@@ -23,6 +23,10 @@ public class ServicoService {
         return repository.findById(id);
     }
 
+    public Optional<Servico> findByCodigoRastreio(String codigoRastreio){
+        return repository.findByCodigoRastreio(codigoRastreio);
+    }
+
     public List<Servico> findByRemetenteId(Long id) {
          return repository.findAllByRemetenteId(id);
     }

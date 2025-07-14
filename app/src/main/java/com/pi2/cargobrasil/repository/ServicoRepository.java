@@ -8,6 +8,8 @@ import java.util.Optional;
 
 public interface ServicoRepository  extends JpaRepository<Servico, Long> {
     Optional<Servico> findById(Long id);
+
+    Optional<Servico> findByCodigoRastreio(String codigoRastreio);
     List<Servico> findAllByRemetenteId(Long id);
 
 }

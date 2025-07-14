@@ -21,11 +21,18 @@ public class ServicoController {
     @Autowired
     private ServicoConverter converter;
 
-     @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ServicoResponse> getServico(@PathVariable Long id) {
         Optional<Servico> servico = service.findById(id);
         return servico.isPresent() ? ResponseEntity.ok(converter.toResponse(servico.get())) : ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/rastreio/{codigoRastreio}")
+    public ResponseEntity<ServicoResponse> getServicoByCodigoDeRastreio(@PathVariable String codigoRastreio) {
+        Optional<Servico> servico = service.findByCodigoRastreio(codigoRastreio);
+        return servico.isPresent() ? ResponseEntity.ok(converter.toResponse(servico.get())) : ResponseEntity.notFound().build();
+    }
+
 
     @PostMapping
     public ResponseEntity<ServicoDTO> post(@RequestBody ServicoDTO servicoDTO){
